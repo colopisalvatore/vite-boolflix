@@ -1,23 +1,18 @@
 <template>
     <div>
-        <nav class="nav-container d-flex justify-content-between align-items-center">
-                <div v-if="show" class="logo-container d-flex justify-content-start align-items-center">
-                        <img @click="backToPopular(popular)" src="../assets/img/boolflix.png" alt="" />
-                </div>
-            <ul>
-                <li>home</li>
-                <li>home</li>
-            </ul>
-        </nav>
-        <div v-if="show" class="search-bar">
-
-            <input type="text" placeholder="Search Movie" v-model="select" @keyup.enter="filterMovie(select)" />
-            <button @click="filterMovie(select)">Search</button>
-
+        <div>
+            <nav class="nav-container d-flex justify-content-between align-items-center">
+                    <div class="logo-container d-flex justify-content-start align-items-center">
+                            <img @click="backToPopular(popular)" src="../assets/img/boolflix.png" alt="" />
+                    </div>
+            </nav>
+            <div>
+                <AppSearch />
+            </div>            
         </div>
 
         <transition name="fade">
-            <div v-if="!show" class="video-container">
+            <div class="video-container">
 
                 <img src="../assets/img/boolflix.gif" alt="" />
 
@@ -28,17 +23,15 @@
 </template>
 
 <script>
+import AppSearch from './AppSearch.vue';
+
 export default {
     name: "AppHeader",
     components: {
+    AppSearch
+},
 
-    },
-
-    data() {
-        return {
-            select: "",
-        };
-    },
+    
 
     props: {
         show: Boolean,
@@ -46,10 +39,6 @@ export default {
     },
 
     methods: {
-        filterMovie(select) {
-            this.$emit('movies', select);
-            this.select = "";
-        },
         backToPopular(popular) {
             this.$emit('back', popular);
         },
