@@ -1,0 +1,53 @@
+@import "./variables";
+
+.my-card {
+    height: 400px;
+    margin: 0 5px;
+    border-radius: 10px;
+    position: relative;
+
+    img {
+        border-radius: 10px;
+        height: 100%;
+    }
+
+    .movie-info {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: $second-color;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        font-size: 15px;
+        border-radius: 10px;
+
+        .info-box {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translate(-5%, -25%);
+            width: 250px;
+
+            .text-info {
+                margin: 10px 0;
+
+                .icon-color {
+                    color: gold;
+                }
+
+                img {
+                    padding: 0 5px;
+                    width: 45px;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+
+    &:hover .movie-info {
+        display: block;
+        cursor: pointer;
+    }
+}

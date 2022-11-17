@@ -1,24 +1,18 @@
 <template>
     <div>
         <div>
-            <nav class="nav-container d-flex justify-content-between align-items-center">
-                    <div class="logo-container d-flex justify-content-start align-items-center">
-                            <img @click="backToPopular(popular)" src="../assets/img/boolflix.png" alt="" />
-                    </div>
-            </nav>
-            <div>
-                <AppSearch />
-            </div>            
+            <div v-if="show" class="my-container mb-5">
+                <div class="logo-container">
+                    <img @click="backToPopular(popular)" src="../assets/img/boolflix.png" alt="" />
+                    <AppSearch />
+                </div>
+            </div>
         </div>
-
         <transition name="fade">
-            <div class="video-container">
-
+            <div v-if="!show" class="intro">
                 <img src="../assets/img/boolflix.gif" alt="" />
-
             </div>
         </transition>
-
     </div>
 </template>
 
@@ -29,24 +23,29 @@ export default {
     name: "AppHeader",
     components: {
     AppSearch
-},
+    },
 
-    
+    props: { popular: Boolean },
 
-    props: {
-        show: Boolean,
-        popular: Boolean,
+    data() {
+        return {
+            show: false,
+        }
     },
 
     methods: {
-        backToPopular(popular) {
-            this.$emit('back', popular);
-        },
+
+    },
+
+    mounted() {
+        setTimeout(() => {
+            this.show = true;
+        }, 4000);
     },
 
 };
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/scss/partials/appheader";
+@import "../assets/scss/main.scss";
 </style>

@@ -1,3 +1,13 @@
+@import "./partials/variables";
+@import "./partials/appheader";
+@import "./partials/cardcomponent";
+
+$fa-font-path: '../webfonts';
+@import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '@fortawesome/fontawesome-free/scss/solid.scss';
+@import '@fortawesome/fontawesome-free/scss/regular.scss';
+@import "bootstrap/scss/bootstrap";
+
 * {
     padding: 0;
     margin: 0;
@@ -7,4 +17,8 @@
 body {
     background-color: #000;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+h2{
+    color: $second-color;
 }
