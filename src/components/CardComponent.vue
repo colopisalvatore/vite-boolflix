@@ -37,7 +37,7 @@
                         {{ item.original_language }}
                     </span>
 
-                    <img v-else :src="`../src/assets/img/flags/${item.original_language}.png`" alt="" />
+                    <img v-else :src="store.getFlag(item.original_language)" alt="" />
                 </div>
 
             </div>
@@ -46,6 +46,8 @@
 </template>
 
 <script>
+import { store } from '../assets/data/store';
+
 export default {
     name: "CardComponent",
 
@@ -59,6 +61,7 @@ export default {
         return{
             language: ["en", "it", "ja", "es", "fr", "de"],
             imgPath: 'https://image.tmdb.org/t/p/w342',
+            store
         }
     },
 

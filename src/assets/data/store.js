@@ -17,4 +17,18 @@ export const store = reactive ({
     tv: [],
     popularMovie: [],
     popularTv: [],
+
+    APIurl: 'https://countryflagsapi.com/png/',
+        getFlag(country) {
+            country == 'uk' ? country = 'gb' : '';
+            country == 'en' ? country = 'us' : '';
+            country == 'ja' ? country = 'jp' : '';
+            country == 'el' ? country = 'gr' : '';
+            country == 'cs' ? country = 'cz' : '';
+            country == 'ko' ? country = 'kr' : '';
+
+            const API = this.APIurl + country
+
+            return API;
+        },
 });
