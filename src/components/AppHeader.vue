@@ -25,7 +25,7 @@ export default {
     AppSearch
     },
 
-    props: { popular: Boolean },
+    props: { },
 
     data() {
         return {

@@ -50,7 +50,7 @@ export default {
                 store.tv = res.data.results;
             })
         },
-        getPopularMovie() {            
+        getPopularMovie() {     
             const apiurl = store.baseUrl + store.endPoint.popularMovie;
             const params = store.params;
             axios.get(apiurl, { params }).then((res) => {
